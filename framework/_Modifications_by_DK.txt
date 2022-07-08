@@ -1,0 +1,16 @@
+Below is the list of edits that actually alters the action of scripts.
+
+AggregateToAnnual.m:
+Line 10, Line 49~51
+
+GetSingleReplicate.m -> GetSingleReplicate_clim.m:
+Line 1~6, 72, 79, 82~96, 102~106, 116
+
+GetStochPertData.m:
+Line 1~9, 12~23, 26~42
+
+SaveClimateAndFlow.m -> SaveClimate_Octave.m & SaveClimateAndFlow_Octave.m:
+Very heavy edits, but afterall, these are no longer in use (for SCCWRP project).
+
+split_high_low_using_CEEMDAN.m:
+Line 134~156

@@ -1,0 +1,29 @@
+save_IntermediateFiles_Clim.m & save_IntermediateFiles_FULL.m:
+custom-built by Donny Kim.
+Provides a function to save intermediate outputs (out/comid_n/intermediate).
+Such includes three diagnostic csv files, and two mat binary files.
+These are saved after running CEEMDAN and LowFreq_PreAnalysis (including broken line process).
+Work around the trouble caused by MATLAB's "table" datatype in GNU Octave.
+
+
+load_IntermediateFiles_Clim.m & load_IntermediateFiles_FULL.m:
+custom-built by Donny Kim.
+Intended for loading two mat binary files from intermediate outputs.
+This function can be useful when script crashes at GetStochPertData phase.
+Work around the trouble caused by MATLAB's "table" datatype in GNU Octave.
+
+
+preprocess_table2csv.m:
+custom-built by Donny Kim.
+A messy work-around to preprocess "table" datatype into "cell array".
+This allows to use cell2csv function to save csv files from "table" without crashing.
+
+
+cell2table.m & struct2table.m:
+From tablicious package (https://github.com/apjanke/octave-tablicious).
+These are essential for all of the custom-built functions introduced above.
+Allows to deal with problems caused by MATLAB's "table" datatype in GNU Octave.
+
+
+
+
