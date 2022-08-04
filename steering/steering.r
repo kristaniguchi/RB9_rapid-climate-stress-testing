@@ -35,7 +35,7 @@
 library(tidyverse)
 
 # Set working directory
-setwd('C:/Workspace/rapid-climate-stress-testing-SCCWRP/steering/'); getwd();
+setwd('C:/Users/KristineT.SCCWRP2K/OneDrive - SCCWRP/Documents/Git/RB9_rapid-climate-stress-testing/steering/'); getwd();
 
 # Source the functions
 source('../R/utils.R')
