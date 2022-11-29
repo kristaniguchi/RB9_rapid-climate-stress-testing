@@ -51,8 +51,8 @@ RCST_inputs_from_raw_RFpredictors = function(comid_arg){
   # Need dplyr
   require(dplyr)
   
-  # Read CSV file first using comid_arg
-  predictor_input <- read.csv(paste0('../CA_All_COMID_descriptors_Ted/', comid_arg, '.csv'))[,1:45]
+  # Read CSV file first using comid_arg, may need to change depending on where this is located
+  predictor_input <- read.csv(paste0('C:/Users/kristinet/SCCWRP/SD Hydro Vulnerability Assessment - General/Data/RawData/Data_for_SDSU/reference_database/CA_All_COMID_descriptors_Ted/', comid_arg, '.csv'))[,1:45]
   
   temp = predictor_input %>% filter(COMID == comid_arg) # Not necessary but just in case. # Mismatch in case. (raw = COMID) but (compiled = comid)
   rm(predictor_input)
