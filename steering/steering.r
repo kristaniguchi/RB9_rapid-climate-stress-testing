@@ -35,9 +35,10 @@
 library(tidyverse)
 
 # Set working directory
-setwd('C:/Users/KristineT.SCCWRP2K/OneDrive - SCCWRP/Documents/Git/RB9_rapid-climate-stress-testing/steering/'); getwd();
+#setwd('C:/Users/KristineT.SCCWRP2K/OneDrive - SCCWRP/Documents/Git/RB9_rapid-climate-stress-testing/steering/'); getwd();
+setwd('C:/Users/KristineT/OneDrive - SCCWRP/Documents/Git/RB9_rapid-climate-stress-testing/steering/'); getwd();
 
-# Source the functions
+# Source the functions, updated this with file path of CA_All_COMID_descriptors_Ted folder for laptop, change if using diff computer
 source('../R/utils.R')
 # Note that directories for saving csv files of climate inputs are hard-coded in each function.
 # To change the saving directory, edit it in "../R/utils.R".
@@ -45,7 +46,7 @@ source('../R/utils.R')
 
 # Creating inputs from RFpredictors format compiled by SCCWRP (RB9)
 RFpredictor_df <- read.csv('../RF_predictor/2022-03-28_RF_predictors_RB9_COMIDS.csv')[,1:45] # we only need column 1 to 45.
-comid_list <- (RFpredictor_df %>% distinct(comid))$comid[1:10] # Trying on 5 comids for test purpose
+comid_list <- (RFpredictor_df %>% distinct(comid))$comid[1:10] # Trying on 10 comids for test purpose, do 11:length on next run
 
 RCST_inputs_from_compiled_RFpredictors(RFpredictor_df, comid_list) # Run it. Ignore the dir.create warning.# In testing stage, I limited it to only 5 COMIDS.
 
@@ -56,10 +57,10 @@ RCST_inputs_from_compiled_RFpredictors(RFpredictor_df, comid_list) # Run it. Ign
 
 dir.create('../hist_raw') # As function will be looping around multiple files, it is better to create directory once here.
 
-comid_list_raw_FULL <- list.files(path = '../CA_All_COMID_descriptors_Ted/', full.names = F, recursive = T, ignore.case = TRUE) %>% 
+comid_list_raw_FULL <- list.files(path = 'C:/Users/kristinet/SCCWRP/SD Hydro Vulnerability Assessment - General/Data/RawData/Data_for_SDSU/reference_database/CA_All_COMID_descriptors_Ted/', full.names = F, recursive = T, ignore.case = TRUE) %>% 
   sub(pattern = "(.*)\\..*$", replacement = "\\1")
 
-comid_list_raw <- comid_list_raw_FULL[1:10] # Subsetting 10 comids for test purpose.
+comid_list_raw <- comid_list_raw_FULL[1:10] # Subsetting 10 comids for test purpose. Can change to COMIDs of interest
 write.csv(comid_list_raw, paste0('../hist_raw/comid_list_raw.csv'),  row.names = FALSE, quote=FALSE, col.names = FALSE) # Save the list of comids
 
 # Loop it.
@@ -121,7 +122,10 @@ for (i in 1:length(comid_list_raw)){
 
 
 # Start by setting and checking working directory
-setwd('C:/Workspace/rapid-climate-stress-testing-SCCWRP/steering/'); getwd();
+#setwd('C:/Workspace/rapid-climate-stress-testing-SCCWRP/steering/'); getwd();
+#setwd('C:/Users/KristineT.SCCWRP2K/OneDrive - SCCWRP/Documents/Git/RB9_rapid-climate-stress-testing/steering/'); getwd();
+setwd('C:/Users/KristineT/OneDrive - SCCWRP/Documents/Git/RB9_rapid-climate-stress-testing/steering/'); getwd();
+
 library(processx); library(tictoc);
 
 
